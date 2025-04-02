@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -21,10 +18,11 @@ public abstract class Dictionary {
     }
 
     private static void loadWordsFromFile() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("russian_nouns.txt"))) {
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(ClassLoader.getSystemResourceAsStream("russian_nouns.txt"))))  {
             while (reader.ready())
                 words.add(reader.readLine());
-        } catch (FileNotFoundException exception) {
+        } catch (NullPointerException exception) {
             System.out.println("'russian_nouns.txt' hasn't found.");
         } catch (IOException exception) {
             System.out.println("Error: " + exception.getMessage());

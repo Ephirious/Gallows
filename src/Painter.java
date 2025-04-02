@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class Painter {
     private StringBuilder[] gameScreen;
@@ -61,10 +58,12 @@ public class Painter {
     private void loadGameScreenFromFile() {
         gameScreen = new StringBuilder[10];
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("template.txt"))) {
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(ClassLoader.getSystemResourceAsStream("template.txt"))))
+        {
             for (int i = 0; i < 10; i++)
                 gameScreen[i] = new StringBuilder(reader.readLine());
-        } catch (FileNotFoundException exception) {
+        } catch (NullPointerException exception) {
             System.out.println("'template.txt' hasn't found.");
         } catch (IOException exception) {
             System.out.println("Error: " + exception.getMessage());
