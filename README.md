@@ -5,12 +5,12 @@ This application simulate game in gallows.
 ![img.png](resources/img.png)
 
 #### Rules:
-- You can start the game or close application;
+- You can start the game or close the application;
     - Your must enter: "Yes"/"No";
-- You get a word which with the number of letters between 6 and 24;
+- You get a word with the number of letters between 6 and 24;
 - You must write one Russian letter;
 - Game will be over if:
-    - Your number of mistakes is equal 6;
+    - Your number of possible mistakes is equal 6;
     - You open all letters of the word;
 - After the end of the game session, you may choose to start the next game or close the application
 
