@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+
 public class Game {
     private final GameController controller;
 
@@ -9,7 +11,12 @@ public class Game {
     public void start() {
         String userAnswer = GameReader.getAnswerOfStartGame();
         while (userAnswer.equals("Yes")) {
-            controller.setWord(Dictionary.getRandomWord());
+            try {
+                controller.setWord(Dictionary.getRandomWord());
+            } catch (NullPointerException exception) {
+                return;
+            }
+
             controller.play();
             controller.reset();
             userAnswer = GameReader.getAnswerOfStartGame();
