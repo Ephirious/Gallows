@@ -21,7 +21,7 @@ public abstract class Dictionary {
 
     private static void loadWordsFromFile() {
         try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(ClassLoader.getSystemResourceAsStream("classes/russian_nouns.txt"))))  {
+                new InputStreamReader(ClassLoader.getSystemResourceAsStream("russian_nouns.txt"))))  {
             while (reader.ready())
                 words.add(reader.readLine());
         } catch (NullPointerException exception) {
